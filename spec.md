@@ -5,7 +5,7 @@ May Day 2023
 Authors:
 - Brian Richter (Aviary Tech)
 
-Discussion: https://lists.w3.org/Archives/Public/public-bitcoin/
+Discussion: https://lists.w3.org/Archives/Public/public-bitcoin/2023May/0000.html
 
 Issues: https://github.com/ordinalsreserve/btco/issues
 
