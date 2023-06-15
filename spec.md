@@ -244,35 +244,35 @@ Mitigation measures include monitoring the Bitcoin network, employing additional
 
 This section discusses privacy considerations for the Bitcoin Ordinals DID method, including potential privacy risks and mitigations, as well as best practices for preserving privacy when using this DID method.
 
-### 6.1. Identifier Correlation
+## 6.1. Identifier Correlation
 
 The potential privacy risks associated with identifier correlation can be mitigated by the Bitcoin Ordinals DID method through:
 
 -	Using unique identifiers for different contexts, reducing the ability to link activities across various services or applications.
 -	Minimizing the amount of public information in DID Documents, limiting the data that can be used to correlate identifiers and user activities.
 
-### 6.2. Transaction Linkability
+## 6.2. Transaction Linkability
 
 To address the privacy implications of transaction linkability within the Bitcoin Ordinals DID method:
 
 - Keep UTXOs managing DIDs to addresses specific to DIDs.
 - Avoid using the same address for regular Bitcoin payments.
 
-### 6.3. Metadata Leakage
+## 6.3. Metadata Leakage
 
 To address the potential privacy risks associated with metadata leakage, the Bitcoin Ordinals DID method recommends:
 
 - Including only necessary information to gain a cryptographic trust relationship.
 - Use encryption for sensitive information, ensuring that only authorized parties can access and interpret the data.
 
-### 6.4. Data Minimization
+## 6.4. Data Minimization
 
 The data minimization practices adopted by the Bitcoin Ordinals DID method to preserve user privacy include:
 
 - Storing only the minimum amount of data required for DID operations, avoiding unnecessary information that could compromise privacy.
 - Refrain from storing personally identifiable information in DID Documents or transactions, reducing the risk of identity exposure.
 
-### 6.5. Best Practices for Privacy Preservation
+## 6.5. Best Practices for Privacy Preservation
 
 Best practices for preserving privacy when using the Bitcoin Ordinals DID method include:
 
@@ -330,7 +330,7 @@ To minimize fees, users can employ strategies such as:
 -	Timing transactions: Schedule transactions during periods of lower network congestion when fees are generally lower.
 -	Embracing eventual consistency: Users can opt for lower fees by accepting longer confirmation times, which allows for more economical transactions during network congestion.
 
-## 8.2. Comparisons with Other DID Methods
+## 8.2. Cost Comparisons with Other DID Methods
 
 The cost implications of the Bitcoin Ordinals DID method can be compared to other DID methods, highlighting its relative advantages or disadvantages:
 
@@ -339,6 +339,28 @@ The cost implications of the Bitcoin Ordinals DID method can be compared to othe
 -	Centralized DID methods (e.g., did:web): Centralized DID methods often have minimal transaction fees, as they use traditional web infrastructure. However, they sacrifice decentralization and may have other costs related to web hosting services.
 
 When evaluating the cost trade-offs of different DID methods, it is essential to consider the specific use case and requirements, such as the desired level of decentralization, security, and the frequency of DID-related operations.
+
+# 9. Trade-offs
+
+## 9.1 Advantages
+
+### 9.1.1 Zero Counterparty Risk
+
+Counterparty risk refers to the risk associated with the other party involved in a financial contract or transaction not meeting their obligations. This risk is completely eliminated with Bitcoin Ordinals DID method as it does not rely on any secondary or tertiary networks (i.e., sidechains, L2 tokens) unlike other common Bitcoin DID methods (ION). By directly using Bitcoin's blockchain, the requirement for trust in an additional party is eradicated, thus removing the counterparty risk. It removes the need for trust in sidechains' security or any other second-layer solution, as the identity verification is directly anchored on the main blockchain.
+
+### 9.1.2 Greatest Network Effects Possible
+
+Bitcoin, being the largest and most well-known blockchain, already has an extensive network of users. By using Bitcoin Ordinals DID method, a user or organization can take advantage of this existing network effect. As more people use Bitcoin for their digital identity needs, the value and utility of the Bitcoin Ordinals DID method grow as well. Furthermore, as Bitcoin has the most significant computational power backing its network, it also offers the highest level of security, which can be crucial for maintaining and protecting digital identities.
+
+## 9.2 Disadvantages
+
+### 9.2.1 Slow Transaction Speed
+
+The Bitcoin network adds a new block of transactions to its blockchain approximately every 10 minutes. This is part of Bitcoin's consensus mechanism, designed to maintain security and prevent double-spending. But it can make the process of anchoring and verifying identities using the Bitcoin Ordinals DID method slow, especially when compared to traditional centralized systems. Real-time or near-instantaneous verification might be critical in certain use cases, which could make this method less suitable.
+
+### 9.2.2 High Transaction Costs
+
+Bitcoin transaction fees fluctuate based on the network's usage. When more people are using Bitcoin, the demand for block space increases, and users must pay higher fees to incentivize miners to include their transactions in the next block. As such, the cost of creating and managing decentralized identifiers (DIDs) using the Bitcoin Ordinals method can increase with the network's usage, making it expensive during periods of high activity.
 
 # 9. Conclusion
 
