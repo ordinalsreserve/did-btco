@@ -80,7 +80,7 @@ To create a DID Document for the Bitcoin Ordinals DID method:
 3. Define any necessary service endpoints for communication or interaction with the DID.
 4. Create a DID Document with the required properties, such as id, verificationMethod, authentication, keyAgreement, and service, following the DID Core Specification.
 5. Inscribe this document onto the satoshi with ordinal number mentioned in the identifier in either its long form as `application/json` or as its short form as `text/plain`.
-6. For key pre-rotation, generate a new key pair and create a DID Document similar to above with it. Inscribe this data and in the same transaction, transfer the original document inscription.
+6. For key pre-rotation, generate a new key pair and create a DID Document in the same format as above. Inscribe this data and in the same transaction, transfer the original document inscription.
 
 ### 4.2.1 Long Form Inscription (JSON)
 
@@ -133,7 +133,7 @@ Example (1065 bytes):
 
 ### 4.2.2 Short Form Inscription (Text)
 
-To save on transaction fees (roughly 1/3 the data size) DID Documents may also be inscribed as a `text/plain` document with a compressed DID Document following the approach popularized under the `did:peer` as numalgo 2.
+To save on transaction fees (roughly 1/3 the data size) DID Documents may also be inscribed as a `text/plain` file with a compressed DID Document following the approach popularized under the `did:peer` as numalgo 2.
 
 Example (197 bytes):
 
@@ -226,7 +226,21 @@ The security and privacy of service endpoints defined in the DID Document are es
 - Minimize the exposure of sensitive data in service endpoints, avoiding the unnecessary collection, storage, or transmission of personal or confidential information.
 - Implement robust access control mechanisms for service endpoints, ensuring that only authorized parties can access the services and data provided by the endpoint.
 
-# 6. Privacy Considerations
+### 5.3.4 Risks of Ledger Attacks on Bitcoin Ordinals DID Method
+
+The Bitcoin Ordinals (btco) DID Method can be impacted if the Bitcoin blockchain is attacked, posing potential threats to end-users and developers:
+
+* Altered Identity Records: Blockchain attacks could compromise the integrity of DID Documents, leading to identity theft or unauthorized actions.
+
+* Double Spend Attack: Such attacks could reverse transactions that manage DID operations, resulting in the loss of DID record changes.
+
+* 51% Attack: An entity controlling the majority of the network's mining hash rate could alter the blockchain history, affecting identity operations.
+
+* Replay Attacks: Attackers could potentially duplicate or delay valid data transmission, leading to unauthorized re-issuance of a previously issued DID operation.
+
+Mitigation measures include monitoring the Bitcoin network, employing additional security measures, using time locks to prevent replay attacks, regularly checking DID Documents, and implementing robust backup strategies.
+
+## 6. Privacy Considerations
 
 This section discusses privacy considerations for the Bitcoin Ordinals DID method, including potential privacy risks and mitigations, as well as best practices for preserving privacy when using this DID method.
 
@@ -240,24 +254,28 @@ The potential privacy risks associated with identifier correlation can be mitiga
 ## 6.2. Transaction Linkability
 
 To address the privacy implications of transaction linkability within the Bitcoin Ordinals DID method:
-- Employ techniques to obscure transaction patterns, such as using CoinJoin or other mixing protocols.
-- Use multiple input/output addresses to increase transaction privacy and make it more challenging to trace transactions back to a specific DID.
+
+- Keep UTXOs managing DIDs to addresses specific to DIDs.
+- Avoid using the same address for regular Bitcoin payments.
 
 ## 6.3. Metadata Leakage
 
 To address the potential privacy risks associated with metadata leakage, the Bitcoin Ordinals DID method recommends:
-- Including only necessary information to gain a cryptographically trust relationship.
+
+- Including only necessary information to gain a cryptographic trust relationship.
 - Use encryption for sensitive information, ensuring that only authorized parties can access and interpret the data.
 
 ## 6.4. Data Minimization
 
 The data minimization practices adopted by the Bitcoin Ordinals DID method to preserve user privacy include:
+
 - Storing only the minimum amount of data required for DID operations, avoiding unnecessary information that could compromise privacy.
-- Refraining from storing personally identifiable information in DID Documents or transactions, reducing the risk of identity exposure.
+- Refrain from storing personally identifiable information in DID Documents or transactions, reducing the risk of identity exposure.
 
 ## 6.5. Best Practices for Privacy Preservation
 
 Best practices for preserving privacy when using the Bitcoin Ordinals DID method include:
+
 - Regularly rotating keys to minimize the risk of key compromise and the exposure of DID-related activities.
 - Using privacy-enhancing technologies such as VPNs or Tor to obfuscate the origin of DID-related transactions and communications.
 - Keeping software up-to-date, including wallets, node software, and other tools used in the management of the Bitcoin Ordinals DID method, to maintain the highest level of security and privacy protection.
@@ -269,6 +287,7 @@ This section provides guidance for implementing the Bitcoin Ordinals DID method,
 ## 7.1. Libraries and Tools
 
 While there are not many existing implementations of the Bitcoin Ordinals DID method, several libraries and tools can be used to facilitate its implementation:
+
 -	Bitcoin libraries: Utilize libraries such as bitcoinjs-lib (JavaScript) or bitcoin-ruby (Ruby) for handling Bitcoin-related functionality.
 - Ord wallet, indexer, and server: The Ordinals project provides a wallet, indexer, and server specifically designed for handling ordinal theory within the Bitcoin Ordinals DID method.
 -	Cryptographic libraries: Use libraries like OpenSSL, libsodium, or TweetNaCl to handle cryptographic operations required by the DID method.
@@ -281,6 +300,7 @@ At the time of writing, there may not be any specific frameworks or SDKs dedicat
 ## 7.3. Best Practices for Implementation
 
 When implementing the Bitcoin Ordinals DID method, consider the following best practices:
+
 -	Error handling: Gracefully handle network errors, transaction failures, and other exceptional situations.
 -	Performance optimization: Optimize transaction fees by minimizing the size of inscriptions and using appropriate fee estimation algorithms.
 -	Security considerations: Secure private keys using hardware wallets or secure enclaves, and follow best practices for key management and cryptographic operations.
@@ -289,6 +309,7 @@ When implementing the Bitcoin Ordinals DID method, consider the following best p
 ## 7.4. Compatibility and Interoperability
 
 The Bitcoin Ordinals DID method is designed to be compatible with the W3C DID standards, allowing for a high degree of interoperability with other DID methods and systems. However, there may be specific challenges or considerations when integrating the Bitcoin Ordinals DID method with other systems, such as:
+
 -	Understanding the unique properties and limitations of the Bitcoin Ordinals DID method, including its reliance on the Bitcoin blockchain and the associated transaction fees and confirmation times.
 -	Ensuring that the implementation follows the DID Core Specification closely to maintain compatibility with other DID methods and systems.
 -	Addressing any potential issues that may arise from using the Bitcoin blockchain for DID operations, such as scalability, privacy, or security concerns.
@@ -304,6 +325,7 @@ This section explores the cost implications of using the Bitcoin Ordinals DID me
 Bitcoin transaction fees associated with creating, updating, and deactivating DIDs using the Bitcoin Ordinals DID method are determined by factors such as network congestion and transaction size. These fees can have a significant impact on users, especially during periods of high network activity.
 
 To minimize fees, users can employ strategies such as:
+
 -	Batching operations: Group multiple DID-related operations into a single transaction to reduce the overall transaction fee.
 -	Timing transactions: Schedule transactions during periods of lower network congestion when fees are generally lower.
 -	Embracing eventual consistency: Users can opt for lower fees by accepting longer confirmation times, which allows for more economical transactions during network congestion.
@@ -311,6 +333,7 @@ To minimize fees, users can employ strategies such as:
 ## 8.2. Cost Comparisons with Other DID Methods
 
 The cost implications of the Bitcoin Ordinals DID method can be compared to other DID methods, highlighting its relative advantages or disadvantages:
+
 -	Bitcoin and Ethereum-based DID methods: These methods have similar cost structures, as they involve on-chain transaction fees for creating, updating, and deactivating DIDs. However, Bitcoin Ordinals DID method users can embrace eventual consistency to manage transaction fees more effectively.
 -	IPFS-based DID methods (e.g., did:ipid): These methods generally have lower transaction fees, as they rely on a distributed file system instead of a blockchain for storing DID documents. However, they may have other costs associated with maintaining IPFS nodes and storing data on the network.
 -	Centralized DID methods (e.g., did:web): Centralized DID methods often have minimal transaction fees, as they use traditional web infrastructure. However, they sacrifice decentralization and may have other costs related to web hosting services.
