@@ -145,7 +145,7 @@ To resolve a DID Document, retrieve the inscription data from the satoshi associ
 
 ## 4.4. Updating a DID Document
 
-To update a DID Document, perform a Bitcoin transaction that sends the inscription to the control of a new public key. This will burn the current DID Document. In the same transaction, inscribe the new DID Document. The control will effectively transfer to this new DID. This may include updating public keys, authentication protocols, or service endpoints.
+To update a DID Document, perform a Bitcoin transaction that sends the inscription to the control of a new public key. This will burn the current DID Document. In the same transaction, inscribe the new DID Document. The control will effectively transfer to this new DID. This may include updating public keys, authentication protocols, or service endpoints. To revoke a verification method an update operation is completed which removes it from the DID Document.
 
 ## 4.5. Deactivating a DID
 
@@ -330,7 +330,7 @@ In summary, the Bitcoin Ordinals DID method offers a unique, secure, and practic
 ## 10.1. Normative References
 
 W3C. (2021). Decentralized Identifiers (DIDs) v1.0. Retrieved from https://www.w3.org/TR/did-core/
-  
+
 Ordinals Project. (n.d.). Ord Handbook. Retrieved from https://docs.ordinals.com/
 
 ## 10.2. Informative References
