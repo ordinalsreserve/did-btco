@@ -145,7 +145,7 @@ To resolve a DID Document, retrieve the inscription data from the satoshi associ
 
 ## 4.4. Updating a DID Document
 
-To update a DID Document, perform a Bitcoin transaction that sends the inscription to the control of a new public key. This will burn the current DID Document. In the same transaction, inscribe the new DID Document. The control will effectively transfer to this new DID. This may include updating public keys, authentication protocols, or service endpoints.
+To update a DID Document, perform a Bitcoin transaction that sends the inscription to the control of a new public key. This will burn the current DID Document. In the same transaction, inscribe the new DID Document. The control will effectively transfer to this new DID. This may include updating public keys, authentication protocols, or service endpoints. To revoke a verification method an update operation is completed which removes it from the DID Document.
 
 ## 4.5. Deactivating a DID
 
