@@ -4,6 +4,8 @@
 
 Weekly on Thursdays at 10AM PT
 
+Google calendar event: https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MjMwZGJsaDVpaWNzMmMxN2Q3MTJ0cDFhOGVfMjAyMzA2MTVUMTcwMDAwWiBicmlhbkBhdmlhcnkudGVjaA&tmsrc=brian%40aviary.tech&scp=ALL
+
 Video call link: https://meet.google.com/hvu-fqax-ihy
 
 ## Meeting Minutes
