@@ -80,7 +80,7 @@ To create a DID Document for the Bitcoin Ordinals DID method:
 3. Define any necessary service endpoints for communication or interaction with the DID.
 4. Create a DID Document with the required properties, such as id, verificationMethod, authentication, keyAgreement, and service, following the DID Core Specification.
 5. Inscribe this document onto the satoshi with ordinal number mentioned in the identifier in either its long form as `application/json` or as its short form as `text/plain`.
-6. For key pre-rotation, generate a new key pair and create a DID Document similar to above with it. Inscribe this data and in the same transaction, transfer the original document inscription.
+6. For key pre-rotation, generate a new key pair and create a DID Document in the same format as above. Inscribe this data and in the same transaction, transfer the original document inscription.
 
 ### 4.2.1 Long Form Inscription (JSON)
 
@@ -133,7 +133,7 @@ Example (1065 bytes):
 
 ### 4.2.2 Short Form Inscription (Text)
 
-To save on transaction fees (roughly 1/3 the data size) DID Documents may also be inscribed as a `text/plain` document with a compressed DID Document following the approach popularized under the `did:peer` as numalgo 2.
+To save on transaction fees (roughly 1/3 the data size) DID Documents may also be inscribed as a `text/plain` file with a compressed DID Document following the approach popularized under the `did:peer` as numalgo 2.
 
 Example (197 bytes):
 
@@ -225,6 +225,20 @@ The security and privacy of service endpoints defined in the DID Document are es
 - Use encrypted communication channels, such as HTTPS or other secure transport protocols, to protect data in transit between the endpoint and its users.
 - Minimize the exposure of sensitive data in service endpoints, avoiding the unnecessary collection, storage, or transmission of personal or confidential information.
 - Implement robust access control mechanisms for service endpoints, ensuring that only authorized parties can access the services and data provided by the endpoint.
+
+### 5.3.4 Risks of Ledger Attacks on Bitcoin Ordinals DID Method
+
+The Bitcoin Ordinals (btco) DID Method can be impacted if the Bitcoin blockchain is attacked, posing potential threats to end-users and developers:
+
+* Altered Identity Records: Blockchain attacks could compromise the integrity of DID Documents, leading to identity theft or unauthorized actions.
+
+* Double Spend Attack: Such attacks could reverse transactions that manage DID operations, resulting in the loss of DID record changes.
+
+* 51% Attack: An entity controlling the majority of the network's mining hash rate could alter the blockchain history, affecting identity operations.
+
+* Replay Attacks: Attackers could potentially duplicate or delay valid data transmission, leading to unauthorized re-issuance of a previously issued DID operation.
+
+Mitigation measures include monitoring the Bitcoin network, employing additional security measures, using time locks to prevent replay attacks, regularly checking DID Documents, and implementing robust backup strategies.
 
 ## 6. Privacy Considerations
 
